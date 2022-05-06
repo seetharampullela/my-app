@@ -1,0 +1,55 @@
+.todo-list-item{
+    display: flex;
+    justify-content: space-between;
+    /* border-left:7px solid blue; */
+    width:90%;
+    border-bottom: 1px solid grey;
+    /* background-color: aqua; */
+    margin-bottom:5px;
+    /* border-radius:8px; */
+}
+
+.list-element-container{
+    display: flex;
+    align-items: center;
+}
+
+.checked-class-name{
+    text-decoration:line-through;
+    padding:0px;
+    display: flex;
+    align-items: center;
+}
+
+.label-element-input{
+    display: flex;
+    align-items: center;
+    display: flex;
+    width:60%;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    color: white;
+    font-family: "Roboto";
+    margin-left:10px;
+    font-size: 16px;
+}
+
+@media screen and (max-width:768px){
+    .label-element-input{
+        display: flex;
+        max-width:60%;
+        flex-wrap: wrap;
+        overflow-y: auto;
+    }
+}
+
+
+.delete-button-element{
+    background-color: lightcoral;
+    color: white;
+    border-radius: 4px;
+    border:none;
+    cursor:pointer;
+    padding:5px;
+    margin: 5px;
+}

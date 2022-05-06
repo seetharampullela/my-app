@@ -65,10 +65,10 @@ class TodoElement extends Component {
         }))
     }
 
-    saveTodo = ()=>{
-        const{todoListContainer}=this.state
-        localStorage.setItem("Data",JSON.stringify(todoListContainer))
-    }
+    // saveTodo = ()=>{
+    //     const{todoListContainer}=this.state
+    //     localStorage.setItem("Data",JSON.stringify(todoListContainer))
+    // }
 
     editTodoValue=(id)=>{
         this.setState(prevState=>({
@@ -111,25 +111,38 @@ class TodoElement extends Component {
         // let stringifiedTodoList = localStorage.getItem("Data");
         // let parsedTodoList = JSON.parse(stringifiedTodoList);
         const isEmpty=(todoListContainer.length>0)
+        let count = 0
         
 
         return(
             <>
             <h2 className="tasks-heading">My Tasks</h2>
             <ul className="todo-list-container">
-                {isEmpty&&todoListContainer.map(each=>(
+                {isEmpty?(todoListContainer.map(each=>(
                     <TodoList todoItem={each} deleteTodoItem={this.deleteTodoItem} toggleIsCheckedValue={this.toggleIsCheckedValue} 
                      key={each.id} editTodoValue={this.editTodoValue} changeTodoInputValue={this.changeTodoInputValue}
                      onPressingEnterKey={this.onPressingEnter}
                      />
-                ))}
+                ))
+                ):(<p>No task added</p>)}
+
+                {todoListContainer.map(each=>{
+                    if(each.isChecked){
+                        count+=1
+                    }
+                    return null
+                })}
+
+                
+                
                 {/* <button type="text" onClick={this.saveTodo} className="delete-button-element">Save</button> */}
+                {isEmpty&&
+                <div className="count-container">
+                    {count>0 ? <p>{todoListContainer.length-count} Tasks to Complete</p>:<p>{todoListContainer.length} tasks added</p>}
+                    <p>{count} tasks completed</p>
+                </div>}
             </ul>
-            {/* {todoListContainer.map(each=>{
-                if(each.isChecked){
-                    return <p>hi</p>
-                }return null
-            })} */}
+            
             </>
         )
     }

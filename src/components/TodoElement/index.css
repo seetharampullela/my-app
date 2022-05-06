@@ -77,3 +77,10 @@
     margin-left:20px;
     font-weight: 600;
 }
+
+.count-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}

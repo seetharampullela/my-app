@@ -84,3 +84,11 @@
     align-items: center;
     width: 90%;
 }
+
+.count-para{
+    color: white;
+    font-family: "roboto";
+    background-color: orange;
+    border: none;
+    padding: 10px;
+}

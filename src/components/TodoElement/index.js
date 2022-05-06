@@ -124,7 +124,7 @@ class TodoElement extends Component {
                      onPressingEnterKey={this.onPressingEnter}
                      />
                 ))
-                ):(<p>No task added</p>)}
+                ):(<p className="count-para">No task added</p>)}
 
                 {todoListContainer.map(each=>{
                     if(each.isChecked){
@@ -132,14 +132,12 @@ class TodoElement extends Component {
                     }
                     return null
                 })}
-
-                
-                
+                               
                 {/* <button type="text" onClick={this.saveTodo} className="delete-button-element">Save</button> */}
                 {isEmpty&&
                 <div className="count-container">
-                    {count>0 ? <p>{todoListContainer.length-count} Tasks to Complete</p>:<p>{todoListContainer.length} tasks added</p>}
-                    <p>{count} tasks completed</p>
+                    {count>0 ? <p className="count-para">{todoListContainer.length-count} Tasks to Complete</p>:<p className="count-para">{todoListContainer.length} tasks added</p>}
+                    <button type="button" onClick={this.deleteCompletedTasks} className="count-para">{count} tasks completed</button>
                 </div>}
             </ul>
             

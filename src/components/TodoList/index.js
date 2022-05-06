@@ -34,12 +34,12 @@ const TodoList = (props) =>{
             <input type="checkbox" onChange={toggleIsChecked} value={isChecked} id={id}/>
             <li key={id} className="todo-list-item">
                 {!isEditing
-                ?<label className={`${textClassName} label-element-input`} onDoubleClick={editTodo} htmlFor={id}>{todoInput}</label>
+                ?<label className={`${textClassName} label-element-input`} htmlFor={id}>{todoInput}</label>
                 :<input className='edit-input' value={todoInput} type="text" id={id} onChange={changeTodoInput} onKeyDown={onPressingEnter}/>
                 }
                 <div>
-                    <button type="text" onClick={editTodo} className="delete-button-element"><FiEdit/></button>
-                    <button type="text" onClick={deleteTodo} className="delete-button-element"><AiFillDelete/></button>
+                    <button type="text" onClick={editTodo} className="delete-button-element"><FiEdit size={20}/></button>
+                    <button type="text" onClick={deleteTodo} className="delete-button-element"><AiFillDelete size={20}/></button>
                 </div>
             </li>
         </div>

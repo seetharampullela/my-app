@@ -5,11 +5,11 @@
     background-size: cover;
     align-items: center;
     min-height:100vh;
-    background-color: lightblue;
+    background-color: white;
 }   
 
 .todo-inner-container{
-    background-color: darkcyan;
+    background-color: gray;
     background-size: cover;
     min-height: 80vh;
     width:80vw;
@@ -88,7 +88,23 @@
 .count-para{
     color: white;
     font-family: "roboto";
-    background-color: orange;
     border: none;
     padding: 10px;
+    text-align: center;
+}
+button{
+    cursor: pointer;
+
+}
+
+.tasks-added-button-element {
+    color: white;
+    font-family: "roboto";
+    border: none;
+    padding: 10px;
+    text-align: center;
+    border:none;
+    font-size: 14px;
+    background-color: green;
+    padding:10px;
 }

@@ -104,6 +104,16 @@ class TodoElement extends Component {
         }))
     }
     
+    deleteCompletedTasks=()=>{
+        const {todoListContainer} = this.state
+        const removedItems = todoListContainer.filter(each=>(
+            each.isChecked===false
+        ))
+        this.setState({todoListContainer:removedItems})
+    }
+
+
+
     renderTodoListElement=()=>{
         // const todoListContainer=JSON.parse(localStorage.getItem("Data"))
         const {todoListContainer} = this.state
@@ -132,12 +142,12 @@ class TodoElement extends Component {
                     }
                     return null
                 })}
-                               
+
                 {/* <button type="text" onClick={this.saveTodo} className="delete-button-element">Save</button> */}
                 {isEmpty&&
                 <div className="count-container">
                     {count>0 ? <p className="count-para">{todoListContainer.length-count} Tasks to Complete</p>:<p className="count-para">{todoListContainer.length} tasks added</p>}
-                    <button type="button" onClick={this.deleteCompletedTasks} className="count-para">{count} tasks completed</button>
+                    <button type="button" onClick={this.deleteCompletedTasks} className="tasks-added-button-element">Clear Completed Tasks: {count}</button>
                 </div>}
             </ul>
             

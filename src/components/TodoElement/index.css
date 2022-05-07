@@ -9,7 +9,7 @@
 }   
 
 .todo-inner-container{
-    background-color: gray;
+    background-color: rgb(224, 222, 222);
     background-size: cover;
     min-height: 80vh;
     width:80vw;
@@ -33,7 +33,7 @@
     font-size:22px;
     font-family:"Roboto";
     font-weight: 700;
-    color:white;
+    color:black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,14 +49,14 @@
 .input-element{
     padding:9px;
     width:70%;
-    border: 1px solid blue;
+    border: 1px solid green;
     outline:none;
     margin-top:10px;
     margin-bottom: 10px;
 }
 
 .add-button{
-    background-color: blue;
+    background-color: green;
     color: white;
     border:none;
     cursor:pointer;
@@ -67,11 +67,12 @@
 .input-and-button{
     display: flex;
     align-items: center;
-    
 }
 
 .tasks-heading{
-    color: white;
+    position:relative;
+    left:40px;
+    color: black;
     font-size:20px;
     font-family: "Roboto";
     margin-left:20px;
@@ -86,7 +87,7 @@
 }
 
 .count-para{
-    color: white;
+    color: black;
     font-family: "roboto";
     border: none;
     padding: 10px;
@@ -107,4 +108,14 @@ button{
     font-size: 14px;
     background-color: green;
     padding:10px;
+}
+
+.delete-button-element{
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    border:none;
+    cursor:pointer;
+    padding:5px;
+    margin: 5px;
 }

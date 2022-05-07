@@ -7,7 +7,8 @@ import TodoList from '../TodoList'
 
 
 class TodoElement extends Component {
-    state = {todoInput:'',todoListContainer:[],isChecked:false,isEditing:false}
+    todoListContainer=JSON.parse(localStorage.getItem("Data"))
+    state = {todoInput:'',todoListContainer:this.todoListContainer,isChecked:false,isEditing:false}
 
     changeTodoInput = event => {
         this.setState({todoInput:event.target.value})
@@ -43,8 +44,7 @@ class TodoElement extends Component {
         return(
         <form onSubmit={this.submitTodoForm} className="form-container">
             <label htmlFor="todoInput" className="label-element">
-                What is your plan?
-                <BiTask size={20}/>
+                What is your plan?  <BiTask size={20}  />
             </label>
             <div className="input-and-button">
                 <input type="text" value={todoInput} placeholder="Create a Task" className="input-element" id="todoInput" onChange={this.changeTodoInput}/>
@@ -65,10 +65,10 @@ class TodoElement extends Component {
         }))
     }
 
-    // saveTodo = ()=>{
-    //     const{todoListContainer}=this.state
-    //     localStorage.setItem("Data",JSON.stringify(todoListContainer))
-    // }
+    saveTodo = ()=>{
+        const{todoListContainer}=this.state
+        localStorage.setItem("Data",JSON.stringify(todoListContainer))
+    }
 
     editTodoValue=(id)=>{
         this.setState(prevState=>({
@@ -143,14 +143,13 @@ class TodoElement extends Component {
                     return null
                 })}
 
-                {/* <button type="text" onClick={this.saveTodo} className="delete-button-element">Save</button> */}
                 {isEmpty&&
                 <div className="count-container">
                     {count>0 ? <p className="count-para">{todoListContainer.length-count} Tasks to Complete</p>:<p className="count-para">{todoListContainer.length} tasks added</p>}
                     <button type="button" onClick={this.deleteCompletedTasks} className="tasks-added-button-element">Clear Completed Tasks: {count}</button>
                 </div>}
             </ul>
-            
+            <button type="text" onClick={this.saveTodo} className="save-button-element">Save</button>
             </>
         )
     }

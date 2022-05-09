@@ -38,7 +38,7 @@ const TodoList = (props) =>{
                 :<input className='edit-input' value={todoInput} type="text" id={id} onChange={changeTodoInput} onKeyDown={onPressingEnter}/>
                 }
                 <div>
-                    <button type="text" onClick={editTodo} className="delete-button-element"><FiEdit size={20}/></button>
+                    <button type="text" onClick={editTodo} className="edit-button-element"><FiEdit size={20}/></button>
                     <button type="text" onClick={deleteTodo} className="delete-button-element"><AiFillDelete size={20}/></button>
                 </div>
             </li>

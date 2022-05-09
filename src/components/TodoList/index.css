@@ -3,7 +3,7 @@
     justify-content: space-between;
     /* border-left:7px solid blue; */
     width:90%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid grey;
     /* background-color: aqua; */
     margin-bottom:5px;
     /* border-radius:8px; */
@@ -45,7 +45,7 @@
 }
 
 .save-button-element{
-    background-color: green;
+    background-color: #4378d9;
     color: white;
     border-radius: 4px;
     border:none;
@@ -55,3 +55,13 @@
     left:50px;
 }
 
+.edit-button-element{
+    background-color: #4378d9;
+    color: white;
+    border-radius: 4px;
+    border:none;
+    cursor:pointer;
+    padding:5px;
+    margin: 5px;
+    
+}

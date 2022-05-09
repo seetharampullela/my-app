@@ -9,12 +9,13 @@
 }   
 
 .todo-inner-container{
-    background-color: rgb(224, 222, 222);
+    background-color: #dfeaed;
     background-size: cover;
     min-height: 80vh;
     width:80vw;
     padding: 5px;
     border-radius: 10px;
+    margin-top:15px;
 }
 
 .form-container{
@@ -49,14 +50,14 @@
 .input-element{
     padding:9px;
     width:70%;
-    border: 1px solid green;
+    border: 1px solid #4378d9;
     outline:none;
     margin-top:10px;
     margin-bottom: 10px;
 }
 
 .add-button{
-    background-color: green;
+    background-color: #4378d9;
     color: white;
     border:none;
     cursor:pointer;
@@ -95,7 +96,6 @@
 }
 button{
     cursor: pointer;
-
 }
 
 .tasks-added-button-element {
@@ -106,12 +106,12 @@ button{
     text-align: center;
     border:none;
     font-size: 14px;
-    background-color: green;
+    background-color: #4378d9;
     padding:10px;
 }
 
 .delete-button-element{
-    background-color: green;
+    background-color:#a36060;
     color: white;
     border-radius: 4px;
     border:none;

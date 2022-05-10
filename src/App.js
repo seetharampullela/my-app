@@ -1,4 +1,3 @@
-
 import './App.css';
 import TodoElement from './components/TodoElement';
 

@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import {v4} from 'uuid'
+// import {Pagination} from 'react-bootstrap'
 import {BiTask} from 'react-icons/bi'
 import Header from '../Header'
 import './index.css'
@@ -146,9 +147,9 @@ const TodoElement = ()=>{
             return todoListContainer.slice(startIndex,endIndex)
         }
 
-        const pagesGroup = () => {
-            let startPage = Math.floor((currentPage-1)/5 )*5
-            return new Array(5).fill().map((_,index)=> startPage + index + 1)
+       const pagesGroup = () => {
+               let startPage = Math.floor((currentPage - 1) / 5) * 5
+                return new Array(5).fill().map((_, index) => startPage + index + 1)
         }
 
         const changePage = (event) =>{
@@ -156,18 +157,34 @@ const TodoElement = ()=>{
             setCurrentPage(pageNumber)
         }
 
+        const renderEachPageElements = () => (
+            paginatedData().map(each=>(
+                <TodoList todoItem={each} deleteTodoItem={deleteTodoItem} toggleIsCheckedValue={toggleIsCheckedValue} 
+                 key={each.id} editTodoValue={editTodoValue} changeTodoInputValue={changeTodoInputValue}
+                 onPressingEnterKey={onPressingEnter}/>
+            ))
+        )
+
+            // let active = currentPage;
+            // let items = [];
+            // for (let number = 1; number <= pages; number++) {
+            // items.push(
+            //     <Pagination.Item key={number}  active={number === active}>
+            //         {number}
+            //     </Pagination.Item>,
+            // );
+            // }
+
         return(
             <div className="page-container">
                 <div>
-                {paginatedData().map(each=>(
-                    <TodoList todoItem={each} deleteTodoItem={deleteTodoItem} toggleIsCheckedValue={toggleIsCheckedValue} 
-                     key={each.id} editTodoValue={editTodoValue} changeTodoInputValue={changeTodoInputValue}
-                     onPressingEnterKey={onPressingEnter}/>
-                ))}
+                    {(currentPage <= pages)?(renderEachPageElements()):(<div className='no-tasks-para'><p className="count-para">No More tasks</p></div>)}
                 </div>
+
+                
+
                 <div className="pagination-container">
                     <button type="button" className='page-button' onClick={previousPage}>Previous Page</button>
-                    {/* <p className='page-number'>{currentPage}</p> */}
                     <nav>
                         <ul className='pagination'>
                             {pagesGroup().map((number,index) => (
@@ -179,6 +196,9 @@ const TodoElement = ()=>{
                             ))}
                         </ul>
                     </nav>
+                    {/* <div>
+                        <Pagination onClick={changePage} size="sm" d-flex flex-row>{items}</Pagination>
+                    </div> */}
                     <button type="button" className='page-button' onClick={nextPage}>Next Page</button>
                 </div>
                 

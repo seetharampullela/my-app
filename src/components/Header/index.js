@@ -7,7 +7,6 @@ const Header = () =>
         <h1 className="todo-heading">
             Simple Todo Application
         </h1>
-        <h1>Heading</h1>
         <RiCalendarTodoFill size={25} />
     </div>
 )

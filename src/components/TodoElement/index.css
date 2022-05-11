@@ -4,19 +4,27 @@
   padding: 10px;
   background-size: cover;
   align-items: center;
-  min-height: 100vh;
+  min-height: 105vh;
   background-color: white;
 }
 
 .todo-inner-container {
   background-color: #dfeaed;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 96vh;
   width: 80vw;
   padding: 5px;
   border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-inner-container {
+    width: 95vw;
+    min-height: 102vh;
+    max-height: 150vh;
+  }
 }
 
 .form-container {
@@ -72,8 +80,6 @@
 }
 
 .tasks-heading {
-  position: relative;
-  left: 40px;
   color: black;
   font-size: 20px;
   font-family: "Roboto";
@@ -86,6 +92,7 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  margin-top: 20px;
 }
 
 .count-para {
@@ -95,6 +102,13 @@
   padding: 10px;
   font-weight: bold;
   font-size: 20px;
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .count-para {
+    font-size: 14px;
+  }
 }
 
 .no-tasks-para {
@@ -133,7 +147,7 @@ button {
 .pagination-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 90%;
 }
 
@@ -141,7 +155,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60vh;
+  min-height: 60vh;
 }
 
 .page-button {
@@ -153,6 +167,13 @@ button {
   padding: 5px;
   margin: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .page-button {
+    font-size: 12px;
+  }
+}
+
 .page-number {
   border: 1px solid grey;
   color: black;
@@ -170,8 +191,11 @@ button {
   color: black;
 }
 
-.active {
+.active-item {
   color: white;
   background-color: #4378d9;
   border: 2px solid skyblue;
+}
+.render-each-page-element {
+  min-height: 60vh;
 }

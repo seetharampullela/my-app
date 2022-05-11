@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {v4} from 'uuid'
-// import {Pagination} from 'react-bootstrap'
+import {Pagination} from 'react-bootstrap'
 import {BiTask} from 'react-icons/bi'
 import Header from '../Header'
 import './index.css'
@@ -12,6 +12,7 @@ const TodoElement = ()=>{
     const [isChecked, setIsChecked] = useState(false)
     const [isEditing, setIsEdited] = useState(false)
     const [currentPage,setCurrentPage] = useState(1)
+    let [count ] = useState(0)
 
     useEffect(()=>{
         setTodoListContainer(()=>JSON.parse(localStorage.getItem("Data")))
@@ -164,9 +165,8 @@ const TodoElement = ()=>{
                  onPressingEnterKey={onPressingEnter}/>
             ))
         )
-
-            // let active = currentPage;
-            // let items = [];
+            let active = currentPage;
+            let items = [];
             // for (let number = 1; number <= pages; number++) {
             // items.push(
             //     <Pagination.Item key={number}  active={number === active}>
@@ -175,17 +175,25 @@ const TodoElement = ()=>{
             // );
             // }
 
+            pagesGroup().map((number,index)=>(
+                items.push(
+                <Pagination.Item key={index}  className={`${currentPage === number ? 'active-item' : null}`} >
+                    {number}
+                </Pagination.Item>
+                )
+            )
+        )
+        const isEmpty=(todoListContainer.length>0)
+
         return(
             <div className="page-container">
-                <div>
+                <div className='render-each-page-element'>
                     {(currentPage <= pages)?(renderEachPageElements()):(<div className='no-tasks-para'><p className="count-para">No More tasks</p></div>)}
-                </div>
-
-                
+                </div>               
 
                 <div className="pagination-container">
                     <button type="button" className='page-button' onClick={previousPage}>Previous Page</button>
-                    <nav>
+                    {/* <nav>
                         <ul className='pagination'>
                             {pagesGroup().map((number,index) => (
                             <li key={index}  >
@@ -195,12 +203,24 @@ const TodoElement = ()=>{
                             </li>
                             ))}
                         </ul>
-                    </nav>
-                    {/* <div>
-                        <Pagination onClick={changePage} size="sm" d-flex flex-row>{items}</Pagination>
-                    </div> */}
+                    </nav> */}
+                    <div>
+                        <Pagination onClick={changePage} size="sm">{items}</Pagination>
+                    </div>
                     <button type="button" className='page-button' onClick={nextPage}>Next Page</button>
                 </div>
+
+                
+                <div className="count-container">
+                {isEmpty&&
+                    <>
+                    {count>0 ? <p className="count-para">{todoListContainer.length-count} Tasks to Complete</p>:<p className="count-para">{todoListContainer.length} tasks added</p>}
+                    <button type="button" onClick={deleteCompletedTasks} className="tasks-added-button-element">Clear Completed Tasks: {count}</button>
+                    </>
+                }
+                </div>
+            
+            <button type="text" onClick={saveTodo} className="save-button-element">Save</button>
                 
             </div>
         )
@@ -209,7 +229,6 @@ const TodoElement = ()=>{
     // rendering todo list items from todo list component
     const renderTodoListElement=()=>{
         const isEmpty=(todoListContainer.length>0)
-        let count = 0
         
         return(
             <>
@@ -220,19 +239,16 @@ const TodoElement = ()=>{
 
                 {todoListContainer.map(each=>{
                     if(each.isChecked){
-                        count+=1
+                        count += 1
                     }
                     return null
                 })}
-
-                {isEmpty&&
-                <div className="count-container">
-                    {count>0 ? <p className="count-para">{todoListContainer.length-count} Tasks to Complete</p>:<p className="count-para">{todoListContainer.length} tasks added</p>}
-                    <button type="button" onClick={deleteCompletedTasks} className="tasks-added-button-element">Clear Completed Tasks: {count}</button>
-                </div>}
             </ul>
+
+
             
-            <button type="text" onClick={saveTodo} className="save-button-element">Save</button>
+            
+            
             </>
         )
     }

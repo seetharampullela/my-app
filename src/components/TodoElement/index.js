@@ -131,6 +131,7 @@ const TodoElement = ()=>{
             if(currentPage<pages){
             setCurrentPage(prevState=>prevState+1)
             }
+            
         }
     
         const previousPage = () =>{
